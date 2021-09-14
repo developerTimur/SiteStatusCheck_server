@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 
 if(isset($_GET['url'])){
     try{
-        $client = new Client(['read_timeout' => 10.0, 'timeout'  => 10.0,'allow_redirects' => false,'http_errors' => true]);
+        $client = new Client(['exceptions' => false, 'read_timeout' => 0, 'timeout'  => 0,'allow_redirects' => false,'http_errors' => true]);
         $response = $client->get($_GET['url']);
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode([
