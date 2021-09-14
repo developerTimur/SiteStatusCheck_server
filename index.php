@@ -6,8 +6,8 @@ use GuzzleHttp\Client;
 
 if(isset($_GET['url'])){
     try{
-        $client = new Client([ 'read_timeout' => 5, 'timeout'  => 5,'allow_redirects' => false,'http_errors' => true]);
-        $response = $client->get($_GET['url']);
+        $client = new Client([ 'timeout'  => 5.0,'allow_redirects' => false,'http_errors' => true]);
+        $response = $client->get(urldecode($_GET['url']));
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode([
             "status" => $response->getStatusCode(),
