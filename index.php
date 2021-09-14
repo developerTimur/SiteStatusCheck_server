@@ -5,7 +5,6 @@ include "vendor/autoload.php";
 use GuzzleHttp\Client;
 
 if(isset($_POST['url'])){
-	file_put_contents("a.txt", "POST TEST");
     try{
         $client = new Client(['timeout'  => 10.0,'allow_redirects' => false,'http_errors' => true]);
         $response = $client->get($_POST['url']);
